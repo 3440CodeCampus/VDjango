@@ -12,7 +12,7 @@ Start a new topic
 {% block content %}
 <form method="post">
 {% csrf_token%}
-   {{ form as_p }}
+   {{ form.as_p }}
     <button class="btn btn-success" type="submit">Post</button>
 </form>
 {% endblock %}
