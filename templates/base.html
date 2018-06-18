@@ -5,11 +5,13 @@
         <link href="https://fonts.googleapis.com/css?family=Peralta" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    {% block stylesheet %}{% endblock %}
 </head>
 <body>
+{% block body %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a href="{% url 'home' %}" class="navbar-brand">Django board</a>
+        <a class="navbar-brand" href="{% url 'home' %}" >Django board</a>
 
     </div>
 </nav>
@@ -21,5 +23,6 @@
     {% block content %}
     {% endblock %}
 </div>
+{% endblock %} <!-- end of  block body -->
 </body>
 </html>
