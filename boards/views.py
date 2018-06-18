@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from .forms import NewTopicForm
-from .models import Board, Topic, Post
+from .models import Board,  Post, Topic
 
 def home(request):
     boards = Board.objects.all()
@@ -22,24 +22,12 @@ def new_topic(request, pk):
             topic.board = board
             topic.starter = user
             topic.save()
-        #subject = request.POST['subject']
-        #message = request.POST['message']
-
-        #user = User.objects.first()
-
-        #topic =  Topic.objects.create(
-           # subject = subject,
-            #board = board,
-            #starter = user
-        #)
-
-        post = Post.objects.create(
-            #message = message,
-            message = form.cleaned_data.get('message'),
-            topic = topic,
-            created_by = user
-        )
-        return redirect('board_topics', pk=board.pk)
+            post = Post.objects.create(
+                message = form.cleaned_data.get('message'),
+                topic = topic,
+                created_by = user
+            )
+            return redirect('board_topics', pk=board.pk)
     else:
         form = NewTopicForm()
     return render(request, 'new_topic.html', {'board':board , 'form':form})
