@@ -2,7 +2,7 @@
 {% block body %}
 <div class="container">
 <h2> You are now in signup page</h2>
-    <form method="'post" novalidate>
+    <form method="post" novalidate>
         {% csrf_token %}
        <!--  {{ form.as_p}}  -->
         {% include "includes/form.html" %}
