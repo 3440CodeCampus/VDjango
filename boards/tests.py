@@ -1,7 +1,6 @@
-#from django.core.urlresolvers import reverse
-from django.urls import reverse, resolve
+# from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-from django.urls import resolve
+from django.urls import resolve, reverse
 from django.test import TestCase
 
 from .views import home, board_topics, new_topic
@@ -42,7 +41,7 @@ class BoardTopicsTests(TestCase):
         self.assertEquals(response.status_code, 404)
 
     def test_board_topics_url_resolves_board_topics_view(self):
-        view = resolve('/boards/1/')
+        view = resolve('/boards/1')
         self.assertEquals(view.func, board_topics)
 
     def test_board_topics_view_contains_navigation_links(self):
