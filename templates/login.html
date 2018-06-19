@@ -14,21 +14,24 @@
         <div class="col-lg-8 col-md-10 col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <h5> You are now in signup page</h5>
+                    <h3 class="card-title">Log in</h3>
                     <form method="post" novalidate>
                         {% csrf_token %}
                         <!--  {{ form.as_p}}  -->
                         {% include "includes/form.html" %}
-                        <button type='submit' class="btn btn-primary">Create an account</button>
+                        <button type='submit' class="btn btn-primary btn-block">Log in</button>
                     </form>
                 </div>
                 <div class="card-footer text-muted text-center">
-                    Already have an account? <a href="{% url 'login' %}">Log in</a>
+                    New to Django Boards? <a href="{% url 'signup' %}">Sign up</a>
                 </div>
+            </div>
+            <div class="text-center py-2">
+                <small>
+                    <a href="" class="text-muted">Forgot your passward?</a>
+                </small>
             </div>
         </div>
     </div>
 </div>
-
-
 {% endblock %}
