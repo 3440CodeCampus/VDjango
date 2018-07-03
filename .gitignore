@@ -86,6 +86,7 @@ __pycache__/
 */__pycache__/*.pyc
 local_settings.py
 
+venv
 .env
 db.sqlite3
 *.delete
